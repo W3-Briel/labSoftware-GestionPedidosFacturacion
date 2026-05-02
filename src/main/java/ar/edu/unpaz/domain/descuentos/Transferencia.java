@@ -5,7 +5,7 @@ import ar.edu.unpaz.domain.Pedido;
 public class Transferencia implements ITipoDescuento{
     @Override
     public String getName() {
-        return "";
+        return "Transferencia";
     }
 
     // 5% de descuento si el total de la compra es mayor a 200
