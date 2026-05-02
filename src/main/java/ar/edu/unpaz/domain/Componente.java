@@ -10,6 +10,7 @@ public class Componente {
     public Componente(String nombre, double precioUnidad, int cantidad) {
         if (precioUnidad <= 0) throw new ErrorComponente("el componente debe valer almenos 1 peso");
         if (nombre == null || nombre.isBlank() ) throw new ErrorComponente("el componente debe tener un nombre valido");
+        if (cantidad <= 0 ) throw new ErrorComponente("la cantidad del componente debe ser mayor a 0");
 
         this.nombre = nombre;
         this.cantidad = cantidad;
