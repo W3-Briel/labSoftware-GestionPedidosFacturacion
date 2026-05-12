@@ -1,5 +1,5 @@
 package ar.edu.unpaz.repo;
 
 public interface IRepoRecibo {
-    void guardarRecibo();
+    void guardarRecibo(String data);
 }

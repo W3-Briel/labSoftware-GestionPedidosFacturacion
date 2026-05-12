@@ -5,9 +5,11 @@ import ar.edu.unpaz.domain.Pedido;
 import ar.edu.unpaz.domain.descuentos.ComboGamer;
 import ar.edu.unpaz.domain.descuentos.ITipoDescuento;
 import ar.edu.unpaz.domain.descuentos.Transferencia;
+import ar.edu.unpaz.repo.ReciboRepository;
 import ar.edu.unpaz.service.PedidoService;
 import ar.edu.unpaz.service.generadores.recibos.GeneradorRecibo;
 import ar.edu.unpaz.service.generadores.recibos.ReciboConsola;
+import ar.edu.unpaz.service.generadores.recibos.ReciboCSV;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -24,13 +26,18 @@ public class Main {
         // descuentos
         ITipoDescuento comboGamer = new ComboGamer();
         ITipoDescuento transferencia = new Transferencia();
+        // repo
+        ReciboRepository repoRecibo = new ReciboRepository();
 
         // generadores
         GeneradorRecibo consolaRecibo = new ReciboConsola();
+        GeneradorRecibo archivoRecibo = new ReciboCSV(repoRecibo);
 
         //service
         PedidoService serviceConsola = new PedidoService(consolaRecibo);
+        PedidoService serviceCSV = new PedidoService(archivoRecibo);
 
         serviceConsola.mostrarRecibo(pedido1,transferencia);
+        serviceCSV.mostrarRecibo(pedido1,transferencia);
     }
 }

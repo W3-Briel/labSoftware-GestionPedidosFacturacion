@@ -11,6 +11,6 @@ public class ReciboConsola extends GeneradorRecibo{
 
     @Override
     protected void exportar(String info) {
-        System.out.println("mensaje de prueba -> " + info);
+        System.out.println("Recibo De Consola -> " + info);
     }
 }
