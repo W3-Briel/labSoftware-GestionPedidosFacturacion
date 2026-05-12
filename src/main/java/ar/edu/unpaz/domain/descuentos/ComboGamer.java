@@ -8,7 +8,6 @@ public class ComboGamer implements ITipoDescuento{
         return "Combo Gamer";
     }
 
-
     // aplicar 10% si hay un "cpu" o "procesador" entre los componentes
     @Override
     public double aplicarDescuento(Pedido pedido) {

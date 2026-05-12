@@ -1,5 +1,6 @@
 package ar.edu.unpaz.domain;
 
+import ar.edu.unpaz.domain.descuentos.ITipoDescuento;
 import ar.edu.unpaz.domain.exceptions.ErrorPedido;
 
 import java.util.ArrayList;
@@ -19,6 +20,9 @@ public class Pedido {
         return this.componentes.stream()
                 .mapToDouble((componente)-> componente.getCantidad() * componente.getPrecioUnidad())
                 .sum();
+    };
+    public double calcularDescuento(ITipoDescuento descuento){
+        return descuento.aplicarDescuento(this);
     };
 
     public List<Componente> getComponentes() {

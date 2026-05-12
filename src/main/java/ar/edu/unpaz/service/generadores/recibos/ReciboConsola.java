@@ -6,11 +6,11 @@ import ar.edu.unpaz.domain.descuentos.ITipoDescuento;
 public class ReciboConsola extends GeneradorRecibo{
     @Override
     protected String generarInfo(Pedido pedido, ITipoDescuento descuento) {
-        return "hola perri";
+        return String.format("sin descuento: %s, nombreDescuento: %s, total: %s", pedido.calcularTotal(), descuento.getName(), pedido.calcularDescuento(descuento));
     }
 
     @Override
-    protected void mostrar(String info) {
-        System.out.println("mensaje de prueba");
+    protected void exportar(String info) {
+        System.out.println("mensaje de prueba -> " + info);
     }
 }
