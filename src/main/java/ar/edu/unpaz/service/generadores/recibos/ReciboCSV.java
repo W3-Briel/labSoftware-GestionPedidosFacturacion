@@ -12,7 +12,13 @@ public class ReciboCSV extends GeneradorRecibo{
 
     @Override
     protected String generarInfo(Pedido pedido, ITipoDescuento descuento) {
-        return "mono de mierda";
+        StringBuilder data = new StringBuilder("idCliente,sinDescuento,nombreDescuento,precio-final\n");
+        data.append(pedido.getIdCliente()+",");
+        data.append(pedido.calcularTotal()+",");
+        data.append(descuento.getName()+",");
+        data.append(pedido.calcularDescuento(descuento)+"\n");
+
+        return data.toString();
     }
 
     @Override
